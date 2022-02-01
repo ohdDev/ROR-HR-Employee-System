@@ -1,0 +1,47 @@
+<div class="container">
+<h1 class="text-center mt-5">Targets</h1>
+ <a href="/" class="mt-5">&#8592; Back to Home</a>
+
+
+
+<a href="/targets/new">
+<span style="font-size: 48px; color: Dodgerblue;" class="d-block mt-3">
+<i class="fas fa-plus-circle"></i>
+</span>
+</a>
+
+   <table class="table table-hover">
+    <thead class="table-info">
+      <tr>
+       <th>ID</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Start Date</th>
+        <th>Finish Date</th>
+        <th>Attribute</th>
+        <th>Team</th>
+        <th>Status</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+     <% @targets.each do |target| %>
+      <tr>
+        <td># <%=target.id%></td>
+        <td><%=target.title%></td>
+        <td><%=target.description%></td>
+        <td><%=target.start_date%></td>
+        <td><%=target.finish_date%></td>
+        <td><%=target.t_attribute%></td>
+        <td><%=target.team%></td>
+        <td><%=target.status%></td>
+        <td> <a href="/targets/<%=target.id%>/edit" class="btn btn-primary">Edit</a></td>
+         <td><a href="#" class="btn btn-danger">Delete</a></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+ 
+
+</div>
