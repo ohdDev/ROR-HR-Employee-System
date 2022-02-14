@@ -1,0 +1,52 @@
+<%= form_with(model: division) do |form| %>
+  <% if division.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(division.errors.count, "error") %> prohibited this division from being saved:</h2>
+
+      <ul>
+        <% division.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div>
+    <%= form.label "Manager", style: "display: block" %>
+    <%= form.select :employee_id, Employee.all.collect{ |employee| ["##{employee.id}-#{employee.name}",employee.id] }%>
+  </div>
+
+ <div>
+    <%= form.label "Teams", style: "display: block" %>
+   <%# <%= form.select :teams, Team.all.collect { |team| ["##{team.id}", team] },{:include_hidden => false},{ :multiple => true, class: 'selectpicker'} %> 
+   <%= form.select :teams, Team.all.collect{ |team| [team.name,team.id] },{:include_hidden => false, selected: @division.teams.map(&:id)},{ :multiple => true, :class => 'p-1 pr-5'} %> 
+
+  </div>
+
+ <!--  <div>
+
+  <%= form.label "Teams", style: "display: block" %>
+  <%= form.select :teams, 
+                   options_from_collection_for_select(Team.all, :id, :name, @division.teams.map(&:id)),{:include_hidden => false},
+    { :multiple => true, :class => 'p-1 pr-5'} %>
+
+  </div> -->
+
+  
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+
+

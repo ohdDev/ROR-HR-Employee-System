@@ -1,0 +1,44 @@
+<div class="container">
+<h1 class="text-center mt-5">Divisions</h1>
+ <a href="/" class="mt-5">&#8592; Back to Home</a>
+
+
+
+<a href="/divisions/new">
+<span style="font-size: 48px; color: Dodgerblue;" class="d-block mt-3">
+<i class="fas fa-plus-circle"></i>
+</span>
+</a>
+
+   <table class="table table-hover">
+    <thead class="table-info">
+      <tr>
+       <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Teams</th>
+        <th>Manager</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+     <% @divisions.each do |division| %>
+      <tr>
+        <td># <%=division.id%></td>
+        <td><%=division.name%></td>
+        <td><%=division.description%></td>
+        <td><%= division.teams.collect(&:name).join(',') %></td>
+
+        <td><%=division.employee_id%></td>
+        <td><%= link_to 'Edit', edit_division_path(division) , :class => "btn btn-primary"%></td>
+        <td><%= link_to 'Destroy', division, :class => "btn btn-danger", :confirm => 'Are you sure?', :method => :delete %></td>
+
+
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+ 
+
+</div>
