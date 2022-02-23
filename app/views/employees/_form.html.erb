@@ -21,6 +21,12 @@
     <%= form.text_field :email %>
   </div>
 
+
+  <div>
+    <%= form.label :email_confirmation , style: "display: block" %>
+    <%= form.text_field :email_confirmation %>
+  </div>
+
   <div>
     <%= form.label :job, style: "display: block" %>
     <%= form.text_field :job %>
@@ -35,6 +41,7 @@
     <%= form.label :employment_status, style: "display: block" %>
     <%= form.text_field :employment_status %>
   </div>
+
 
   <div>
     <%= form.submit %>

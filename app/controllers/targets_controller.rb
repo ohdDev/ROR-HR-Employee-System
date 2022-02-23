@@ -65,6 +65,6 @@ class TargetsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def target_params
-      params.require(:target).permit(:title, :description, :start_date, :finish_date, :status)
+      params.require(:target).permit(:title, :description, :start_date, :finish_date, :status, :team_id)
     end
 end

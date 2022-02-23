@@ -23,7 +23,7 @@
 
   <div>
     <%= form.label "Manager", style: "display: block" %>
-    <%= form.select :employee_id, Employee.all.collect{ |employee| ["##{employee.id}-#{employee.name}",employee.id] }%>
+    <%= form.select :employee_id, Employee.all.collect{ |employee| [employee.name,employee.id] }%>
   </div>
 
  <div>

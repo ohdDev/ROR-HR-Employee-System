@@ -36,6 +36,12 @@
     <%= form.text_field :status %>
   </div>
 
+<div>
+    <%= form.label :team_id, style: "display: block" %>
+    <%= form.select :team_id, Team.all.collect{ |team| [team.name,team.id] }%>
+  </div>
+
+
   <div>
     <%= form.submit %>
   </div>

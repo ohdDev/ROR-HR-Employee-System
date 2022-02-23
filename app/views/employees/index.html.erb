@@ -18,6 +18,7 @@
         <th>Email</th>
         <th>Job</th>
         <th>Salary</th>
+        <th>Team</th>
         <th>Employment Status</th>
         <th></th>
         <th></th>
@@ -31,6 +32,9 @@
         <td><%=employee.email%></td>
         <td><%=employee.job%></td>
         <td><%=employee.salary%></td>
+        <% if !(employee.team_id).nil? %>
+        <td> <%=Team.find(employee.team_id).name %></td> 
+        <%else%> <td></td> <%end%>
         <td><%=employee.employment_status%></td>
         <td> <a href="/employees/<%=employee.id%>/edit" class="btn btn-primary">Edit</a></td>
          <td><a href="/employees/<%=employee.id%>" id="destroy" class="btn btn-danger">Delete</a></td>
@@ -41,3 +45,5 @@
  
 
 </div>
+
+

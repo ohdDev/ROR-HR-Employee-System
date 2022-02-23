@@ -22,10 +22,19 @@
   </div>
 
   <div>
-    <%= form.label :leader_id, style: "display: block" %>
-    <%= form.text_field :leader_id %>
+    <%= form.label :leader_id,'Team Leader', style: "display: block" %>
+    <%= form.select :leader_id,Employee.all.collect{ |employee| [employee.name,employee.id] } %>
   </div>
-<%=  :division_id %>
+
+
+<div>
+    <%= form.label :employees, style: "display: block" %>
+   <%= form.select :employees, Employee.all.where.not(id: @team.leader_id).collect{ |employee| [employee.name,employee.id] },{:include_hidden => false, selected: @team.employees.map(&:id)},{ :multiple => true, :class => 'p-1 pr-5'} %> 
+
+  </div>
+
+
+
   <div>
     <%= form.submit %>
   </div>

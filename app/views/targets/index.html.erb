@@ -1,14 +1,49 @@
-<p style="color: green"><%= notice %></p>
+<div class="container">
+<h1 class="text-center mt-5">Targets</h1>
+ <a href="/" class="mt-5">&#8592; Back to Home</a>
 
-<h1>Targets</h1>
 
-<div id="targets">
-  <% @targets.each do |target| %>
-    <%= render target %>
-    <p>
-      <%= link_to "Show this target", target %>
-    </p>
-  <% end %>
+
+<a href="/targets/new">
+<span style="font-size: 48px; color: Dodgerblue;" class="d-block mt-3">
+<i class="fas fa-plus-circle"></i>
+</span>
+</a>
+
+   <table class="table table-hover">
+    <thead class="table-info">
+      <tr>
+      <th>ID</th>
+       <th>Title</th>
+        <th>Description</th>
+        <th>Start Date</th>
+        <th>Finish Date</th>
+        <th>Status</th>
+        <th>Team</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+     <% @targets.each do |target| %>
+      <tr>
+        <td># <%=target.id%></td>
+        <td><%=target.title%></td>
+        <td><%=target.description%></td>
+        <td><%=target.start_date.strftime("%Y-%m-%d")%></td>
+        <td><%=target.finish_date.strftime("%Y-%m-%d")%></td>
+        <td><%=target.status%></td>
+        <% if !(target.team_id).nil? %>
+        <td> <%=Team.find(target.team_id).name %></td> 
+        <%else%><td></td> <%end%>
+        <td> <a href="/targets/<%=target.id%>/edit" class="btn btn-primary">Edit</a></td>
+         <td><a href="/targets/<%=target.id%>" id="destroy" class="btn btn-danger">Delete</a></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+ 
+
 </div>
 
-<%= link_to "New target", new_target_path %>
+

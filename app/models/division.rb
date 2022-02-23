@@ -10,5 +10,14 @@ class Division < ApplicationRecord
     #     end
     # end
 
+    validates :name,length: { in: 3..20 },presence: true, format: { with: /\A[a-zA-Z0-9-]+\z/,
+        message: "only allows letters, numbers and -" }
+
+    validates :description,length: { maximum: 50 }
+
+    validates :employee_id, presence: true,uniqueness: true
+
+    validates :teams, presence: true
+
 
 end

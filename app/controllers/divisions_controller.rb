@@ -35,12 +35,15 @@ class DivisionsController < ApplicationController
   # POST /divisions or /divisions.json
   def create
 
-    division_teams = division_params["teams"].map{|team| Team.find(team.to_i)}
-    d_p = division_params
-    d_p["teams"] = division_teams
- 
-
-    @division = Division.new(d_p)
+    
+    if !(division_params["teams"]).nil? 
+      division_teams = division_params["teams"].map{|team| Team.find(team.to_i)}
+      d_p = division_params
+      d_p["teams"] = division_teams
+      @division = Division.new(d_p)
+    else
+      @division = Division.new(division_params)
+    end
 
     respond_to do |format|
       if @division.save
@@ -58,14 +61,24 @@ class DivisionsController < ApplicationController
     # @division.teams.push(@teams)
    
     # division_name = params["division"]["name"]
-    division_teams = division_params["teams"].map{|team| Team.find(team.to_i)}
+    # division_teams = division_params["teams"].map{|team| Team.find(team.to_i)}
     # division_params["teams"] = division_teams
-    d_p = division_params
-    d_p["teams"] = division_teams
-    p "&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&"
-    p d_p
-    p "&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&"
+    # d_p = division_params
+    # d_p["teams"] = division_teams
+    # p "&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&"
+    # p d_p
+    # p "&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&"
     # @division.update(teams: division_teams)
+
+
+    d_p = division_params
+
+    if !(division_params["teams"]).nil? 
+      division_teams = division_params["teams"].map{|team| Team.find(team.to_i)}
+      d_p["teams"] = division_teams
+    end
+
+
     respond_to do |format|
       if @division.update(d_p)
 
