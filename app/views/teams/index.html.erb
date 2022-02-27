@@ -21,6 +21,7 @@
         <th>Division</th>
         <th></th>
         <th></th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -32,16 +33,16 @@
 
         <% if !(Employee.find_by(id: team.leader_id)).nil? %>
         <td> <%=Employee.find(team.leader_id).name%></td> 
-        <%else%> <td></td> <%end%>
+        <%end%>
         
-        <td><%= team.employees.where.not(id: team.leader_id).collect(&:name).join(',') %></td>
+        <td><p class="overme"><%= team.employees.where.not(id: team.leader_id).collect(&:name).join(',') %></p></td>
 
          <% if !(team.division).nil? %>
         <td> <%=team.division.name %></td> 
-        <%else%> <td></td> <%end%>
-
-         <td> <a href="/teams/<%=team.id%>/edit" class="btn btn-primary">Edit</a></td>
-         <td><a href="/teams/<%=team.id%>" id="destroy" class="btn btn-danger">Delete</a></td>
+         <%else%> <td></td> <%end%>
+         <td class="px-0"><%= link_to "Show", team_path(team), class: "btn btn-success"  %></td>
+         <td class="px-0"> <a href="/teams/<%=team.id%>/edit" class="btn btn-primary">Edit</a></td>
+         <td class="px-0"><a href="/teams/<%=team.id%>" id="destroy" class="btn btn-danger">Delete</a></td>
       </tr>
     <% end %>
     </tbody>
