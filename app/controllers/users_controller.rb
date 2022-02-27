@@ -15,6 +15,12 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def purge_picture
+    @user = User.find(params[:id])
+    @user.picture.purge
+    redirect_back fallback_location: user_path, notice: "image has successfully deleted"
+  end
+
   # GET /users/1/edit
   def edit
   end
@@ -68,6 +74,6 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:email, :name, :password,:email_confirmation,:password_confirmation)
+      params.require(:user).permit(:email, :name, :password,:email_confirmation,:password_confirmation, :picture)
     end
 end

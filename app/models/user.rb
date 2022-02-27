@@ -11,4 +11,6 @@ class User < ApplicationRecord
 
     validates :name, length: { in: 2..10 }, 
     format: {with:  /\A[a-zA-Z][A-Za-z0-9._%+-]+\z/, message: "must start with letter"}
+
+    has_one_attached :picture
 end

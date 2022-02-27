@@ -1,5 +1,10 @@
 <h1>Editing user</h1>
 
+<% if @user.picture.attached?%>
+<%= image_tag(@user.picture, size: "200x200")%>
+<%= button_to "Delete Profile Picture", purge_picture_user_path(@user), method: :delete %>
+<%end%>
+
 <%= render "form", user: @user %>
 
 <br>
