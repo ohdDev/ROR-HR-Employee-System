@@ -16,6 +16,25 @@
   </head>
 
   <body>
+
+
+<nav class="navbar navbar-light bg-light">
+  <ul class="p-0 d-flex" style="list-style-type: none;">
+  <% if !user_signed_in? %>
+    <li><a><%= link_to "Sign Up", new_user_registration_path, class: "btn btn-outline-success mr-2" %></a></li>
+    <li><a><%= link_to "Sign In", new_user_session_path, class:"btn btn-sm btn-outline-secondary mr-2" %></a></li>
+  <%else%>
+    <li><a><%= button_to "Sign Out", destroy_user_session_path(@user), method: :delete , class:"btn btn-sm btn-outline-danger" %></a></li>
+  <%end%>
+
+   
+  </ul>
+</nav>
+
+
+
+   <p class="notice"><%= notice %></p>
+   <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
 

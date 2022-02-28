@@ -1,5 +1,6 @@
 class DivisionsController < ApplicationController
   before_action :set_division, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
 
   # GET /divisions or /divisions.json
   def index
