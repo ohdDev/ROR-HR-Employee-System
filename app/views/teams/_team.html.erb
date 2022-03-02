@@ -9,9 +9,23 @@
     <%= team.description %>
   </p>
 
+   <p>
+    <strong>Division:</strong>
+     <% if !(team.division).nil? %>
+    <%= team.division.name %>
+     <%end%>
+  </p>
+
   <p>
     <strong>Leader Id:</strong>
-    <%= team.leader_id %>
+    <%= Employee.find_by(id: team.leader_id).name %>
   </p>
+
+   <p>
+    <strong>Members:</strong>
+    <%= team.employees.where.not(id: team.leader_id).collect(&:name).join(',') %>
+  </p>
+
+  
 
 </div>

@@ -1,5 +1,6 @@
 class TargetsController < ApplicationController
   before_action :set_target, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
 
   # GET /targets or /targets.json
   def index
