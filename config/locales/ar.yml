@@ -97,6 +97,23 @@ ar:
         update division: 'تعديل القسم'
         show division: 'عرض القسم'
         edit division: 'تعديل القسم'
+    Targets:
+      forms:
+        id: 'الرقم التعريفي'
+        title: "العنوان"
+        description: 'الوصف'
+        start date: 'تاريخ البدء'
+        finish date: 'تاريخ الانتهاء'
+        status: 'الحالة'
+        team: 'الفريق'
+        editing target: 'تعديل الهدف'
+        new target: 'هدف جديد'
+      buttons:
+        back to targets: 'الرجوع الأهداف'
+        destroy target: 'حذف الهدف'
+        update target: 'تعديل الهدف'
+        show target: 'عرض الهدف'
+        edit target: 'تعديل الهدف'
   navbar:
     Sign Up: 'تسجيل'
     Sign In: 'تسجيل الدخول'
