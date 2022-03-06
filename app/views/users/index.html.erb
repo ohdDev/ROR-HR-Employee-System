@@ -30,8 +30,8 @@
         <td><%=user.email%></td>
         <td>******</td>
          <td class="px-0"><%= link_to t('global.buttons.show'), user_path(user), class: "btn btn-success"  %></td>
-         <td> <a href="/users/<%=user.id%>/edit" class="btn btn-primary"><%= t 'global.buttons.edit' %></a></td>
-         <td><a href="/users/<%=user.id%>" id="destroy" class="btn btn-danger"><%= t 'global.buttons.deletes' %></a></td>
+         <td class="px-0"><%= link_to t('global.buttons.edit'), edit_user_path(user), class: "btn btn-primary"  %></td>
+         <td class="px-0"><%= button_to t('global.buttons.delete'), user_path(user), method: :delete, class: "btn btn-danger"  %></td>
       </tr>
     <% end %>
     </tbody>

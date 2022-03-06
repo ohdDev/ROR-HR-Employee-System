@@ -11,9 +11,6 @@ ar:
       submit:
         create: "انشاء %{model}"
         update: "تحديث %{model}"
-  
-        
-
   models:
     Users: 'المستخدمين'
     Employees: 'الموظفين'
@@ -31,7 +28,6 @@ ar:
       back to home: 'الرجوع للصفحة الرئيسية'
     messages:
       error message: 'أخطاء منعتك من حفظ التغييرات %{count}'
-
   pages:
     Users:
       forms:
@@ -70,8 +66,22 @@ ar:
         update employee: 'تعديل الموظف'
         show employee: 'عرض الموظف'
         edit employee: 'تعديل الموظف'
-
-
+    Teams:
+      forms:
+        id: 'الرقم التعريفي'
+        name: "الاسم"
+        description: 'الوصف'
+        leader: 'القائد'
+        members: 'الأعضاء'
+        division: 'القسم'
+        editing team: 'تعديل الفريق'
+        new team: 'فريق جديد'
+      buttons:
+        back to teams: 'الرجوع للفرق'
+        destroy team: 'حذف الفريق'
+        update team: 'تعديل الفريق'
+        show team: 'عرض الفريق'
+        edit team: 'تعديل الفريق'
   navbar:
     Sign Up: 'تسجيل'
     Sign In: 'تسجيل الدخول'

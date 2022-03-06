@@ -1,28 +1,28 @@
 <div id="<%= dom_id team %>">
   <p>
-    <strong>Name:</strong>
+    <strong><%= t('pages.Teams.forms.name') %>: </strong>
     <%= team.name %>
   </p>
-
+ 
   <p>
-    <strong>Description:</strong>
+    <strong><%= t('pages.Teams.forms.description') %>: </strong>
     <%= team.description %>
   </p>
 
    <p>
-    <strong>Division:</strong>
+    <strong><%= t('pages.Teams.forms.division') %>: </strong>
      <% if !(team.division).nil? %>
     <%= team.division.name %>
      <%end%>
   </p>
 
   <p>
-    <strong>Leader Id:</strong>
+    <strong><%= t('pages.Teams.forms.leader') %>: </strong>
     <%= Employee.find_by(id: team.leader_id).name %>
   </p>
 
    <p>
-    <strong>Members:</strong>
+    <strong><%= t('pages.Teams.forms.members') %>: </strong>
     <%= team.employees.where.not(id: team.leader_id).collect(&:name).join(',') %>
   </p>
 

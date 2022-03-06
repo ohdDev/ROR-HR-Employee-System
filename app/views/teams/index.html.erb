@@ -1,6 +1,6 @@
 <div class="container">
-<h1 class="text-center mt-5">Teams</h1>
- <a href="/" class="mt-5">&#8592; Back to Home</a>
+<h1 class="text-center mt-5"><%= t 'models.Teams' %></h1>
+ <a href="/" class="mt-5">&#8592; <%= t 'global.buttons.back to home' %></a>
 
 
 
@@ -13,12 +13,12 @@
    <table class="table table-hover">
     <thead class="table-info">
       <tr>
-       <th>ID</th>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Leader</th>
-        <th>members</th>
-        <th>Division</th>
+       <th><%= t 'pages.Teams.forms.id' %></th>
+        <th><%= t 'pages.Teams.forms.name' %></th>
+        <th><%= t 'pages.Teams.forms.description' %></th>
+        <th><%= t 'pages.Teams.forms.leader' %></th>
+        <th><%= t 'pages.Teams.forms.members' %></th>
+        <th><%= t 'pages.Teams.forms.division' %></th>
         <th></th>
         <th></th>
         <th></th>
@@ -40,9 +40,9 @@
          <% if !(team.division).nil? %>
         <td> <%=team.division.name %></td> 
          <%else%> <td></td> <%end%>
-         <td class="px-0"><%= link_to "Show", team_path(team), class: "btn btn-success"  %></td>
-         <td class="px-0"> <a href="/teams/<%=team.id%>/edit" class="btn btn-primary">Edit</a></td>
-         <td class="px-0"><a href="/teams/<%=team.id%>" id="destroy" class="btn btn-danger">Delete</a></td>
+         <td class="px-0"><%= link_to t('global.buttons.show'), team_path(team), class: "btn btn-success"  %></td>
+         <td class="px-0"><%= link_to t('global.buttons.edit'), edit_team_path(team), class: "btn btn-primary"  %></td>
+         <td class="px-0"><%= button_to t('global.buttons.delete'), team_path(team), method: :delete, class: "btn btn-danger"  %></td>
       </tr>
     <% end %>
     </tbody>

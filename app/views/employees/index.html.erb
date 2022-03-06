@@ -38,8 +38,8 @@
         <%else%> <td></td> <%end%>
         <td><%=employee.employment_status%></td>
         <td class="px-0"><%= link_to t('global.buttons.show'), employee_path(employee), class: "btn btn-success"  %></td>
-        <td> <a href="/employees/<%=employee.id%>/edit" class="btn btn-primary"><%= t 'global.buttons.edit' %></a></td>
-         <td><a href="/employees/<%=employee.id%>" id="destroy" class="btn btn-danger"><%= t 'global.buttons.delete' %></a></td>
+        <td class="px-0"><%= link_to t('global.buttons.edit'), edit_employee_path(employee), class: "btn btn-primary"  %></td>
+        <td class="px-0"><%= button_to t('global.buttons.delete'), employee_path(employee), method: :delete, class: "btn btn-danger"  %></td>
       </tr>
     <% end %>
     </tbody>
