@@ -41,6 +41,7 @@ ar:
         password confirm: 'تأكيد كلمة المرور'
         editing user: 'تعديل المستخدم'
         new user: 'مستخدم جديد'
+        remember me: 'تذكرني'
       buttons:
         back to users: 'الرجوع للمستخدمين'
         destroy user: 'حذف المستخدم'
