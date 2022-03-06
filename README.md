@@ -32,5 +32,9 @@ In this project I'm creating an HR emplyee system using ruby on rails.
 
 ![show teams](https://i.ibb.co/7gSmZvh/Screen-Shot-2022-02-28-at-5-34-35-AM.png)
 
+- use Rails Internationalization to add arabic translation
+
+https://user-images.githubusercontent.com/71216797/156935641-9609746d-9f04-448e-86ba-feb98baeb00e.mp4
+
 
 
