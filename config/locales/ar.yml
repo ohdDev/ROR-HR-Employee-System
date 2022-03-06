@@ -1,5 +1,19 @@
 ar:
   HR System: "نظام الموارد البشرية"
+  activerecord:
+    models:
+      user: 'المستخدم'
+      employee: 'الموظف'
+      target: 'الهدف'
+      team: 'الفريق'
+      division: 'القسم'
+  helpers:
+      submit:
+        create: "انشاء %{model}"
+        update: "تحديث %{model}"
+  
+        
+
   models:
     Users: 'المستخدمين'
     Employees: 'الموظفين'
@@ -18,9 +32,6 @@ ar:
     messages:
       error message: 'أخطاء منعتك من حفظ التغييرات %{count}'
 
-
-
-  
   pages:
     Users:
       forms:
@@ -41,10 +52,26 @@ ar:
         update user: 'تعديل المستخدم'
         show user: 'عرض المستخدم'
         edit user: 'تعديل المستخدم'
-     
+    Employees:
+      forms:
+        id: 'الرقم التعريفي'
+        name: "الاسم"
+        email: 'الإيميل'
+        email confirmation: 'تأكيد الإيميل'
+        job: 'الوظيفة'
+        team: 'الفريق'
+        salary: 'الراتب'
+        editing employee: 'تعديل الموظف'
+        employment status: 'حالة التوظيف'
+        new employee: 'موظف جديد'
+      buttons:
+        back to employees: 'الرجوع للموظفين'
+        destroy employee: 'حذف الموظف'
+        update employee: 'تعديل الموظف'
+        show employee: 'عرض الموظف'
+        edit employee: 'تعديل الموظف'
 
 
-  
   navbar:
     Sign Up: 'تسجيل'
     Sign In: 'تسجيل الدخول'
