@@ -1,17 +1,22 @@
 <div id="<%= dom_id division %>">
   <p>
-    <strong>Name:</strong>
+    <strong><%= t('pages.Divisions.forms.name') %>: </strong>
     <%= division.name %>
   </p>
 
   <p>
-    <strong>Description:</strong>
+    <strong><%= t('pages.Divisions.forms.description') %>: </strong>
     <%= division.description %>
   </p>
 
   <p>
-    <strong>Manager:</strong>
+    <strong><%= t('pages.Divisions.forms.manager') %>: </strong>
     <%= division.employee_id %>
+  </p>
+
+    <p>
+    <strong><%= t('pages.Divisions.forms.teams') %>: </strong>
+    <%= division.teams.collect(&:name).join(',') %>
   </p>
 
 </div>

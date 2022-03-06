@@ -82,6 +82,21 @@ ar:
         update team: 'تعديل الفريق'
         show team: 'عرض الفريق'
         edit team: 'تعديل الفريق'
+    Divisions:
+      forms:
+        id: 'الرقم التعريفي'
+        name: "الاسم"
+        description: 'الوصف'
+        teams: 'الفرق'
+        manager: 'المدير'
+        editing division: 'تعديل القسم'
+        new division: 'قسم جديد'
+      buttons:
+        back to divisions: 'الرجوع للأقسام'
+        destroy division: 'حذف القسم'
+        update division: 'تعديل القسم'
+        show division: 'عرض القسم'
+        edit division: 'تعديل القسم'
   navbar:
     Sign Up: 'تسجيل'
     Sign In: 'تسجيل الدخول'
