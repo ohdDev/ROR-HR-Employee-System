@@ -17,29 +17,29 @@
 
   <body>
 
-<!--
+
 <nav class="navbar navbar-light bg-light">
   <ul class="p-0 d-flex" style="list-style-type: none;">
   <% if !user_signed_in? %>
-    <li><a><%= link_to "Sign Up", new_user_registration_path, class: "btn btn-outline-success mr-2" %></a></li>
-    <li><a><%= link_to "Sign In", new_user_session_path, class:"btn btn-sm btn-outline-secondary mr-2" %></a></li>
+    <li><a><%= link_to t('navbar.Sign Up'), new_user_registration_path, class: "btn btn-outline-success mr-2" %></a></li>
+    <li><a><%= link_to t('navbar.Sign In'), new_user_session_path, class:"btn btn-sm btn-outline-secondary mr-2" %></a></li>
   <%else%>
-    <li><a><%= button_to "Sign Out", destroy_user_session_path(@user), method: :delete , class:"btn btn-sm btn-outline-danger" %></a></li>
+    <li><a><%= button_to t('navbar.Sign Out'), destroy_user_session_path(@user), method: :delete , class:"btn btn-sm btn-outline-danger" %></a></li>
   <%end%>
 
    
   </ul>
 </nav>
 
--->
+
 
 
 
 <!-- Here is the sidebar -->
-
+<!--
   <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
       <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Company name</a>
-   <!--   <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search"> -->
+  //  <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search"> 
    <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav px-3 form-inline">
       <% if !user_signed_in? %>
@@ -105,7 +105,7 @@
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
 
-
+-->
 <!-- Here is the sidebar -->
 
 
@@ -113,11 +113,11 @@
    <p class="alert"><%= alert %></p>
     <%= yield %>
 
-
+<!--
  </main>
       </div>
     </div>
-
+-->
 
   </body>
 
@@ -140,12 +140,15 @@
 </script> %>
 
 <!-- Icons -->
+<!--
     <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
     <script>
       feather.replace()
     </script>
+  -->
 
     <!-- Graphs -->
+    <!--
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.7.1/dist/Chart.min.js"></script>
     <script>
       var ctx = document.getElementById("myChart");
@@ -176,5 +179,5 @@
         }
       });
     </script>
-
+-->
 </html>
