@@ -12,22 +12,22 @@
   <% end %>
 
   <div>
-    <%= form.label t('pages.Divisions.forms.name'), style: "display: block" %>
+    <%= form.label t('pages.Divisions.forms.name', default: 'Name'), style: "display: block" %>
     <%= form.text_field :name %>
   </div>
 
   <div>
-    <%= form.label t('pages.Divisions.forms.description'), style: "display: block" %>
+    <%= form.label t('pages.Divisions.forms.description', default: 'Description'), style: "display: block" %>
     <%= form.text_field :description %>
   </div>
 
   <div>
-    <%= form.label t('pages.Divisions.forms.manager'), style: "display: block" %>
+    <%= form.label t('pages.Divisions.forms.manager', default: 'Manager'), style: "display: block" %>
     <%= form.select :employee_id, Employee.all.collect{ |employee| [employee.name,employee.id] }%>
   </div>
 
  <div>
-    <%= form.label t('pages.Divisions.forms.teams'), style: "display: block" %>
+    <%= form.label t('pages.Divisions.forms.teams', default: 'Teams'), style: "display: block" %>
    <%# <%= form.select :teams, Team.all.collect { |team| ["##{team.id}", team] },{:include_hidden => false},{ :multiple => true, class: 'selectpicker'} %> 
    <%= form.select :teams, Team.all.collect{ |team| [team.name,team.id] },{:include_hidden => false, selected: @division.teams.map(&:id)},{ :multiple => true, :class => 'p-1 pr-5'} %> 
 

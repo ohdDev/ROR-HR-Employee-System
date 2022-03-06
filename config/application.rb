@@ -22,6 +22,5 @@ module HREmployeeSystem
     config.i18n.available_locales = [:en, :ar]
     config.i18n.default_locale = :ar
 
-
   end
 end

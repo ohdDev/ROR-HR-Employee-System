@@ -1,12 +1,14 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html >
+<html <% if I18n.locale.to_s == "ar"%> dir="rtl" <%end%>>
   <head>
     <title>HREmployeeSystem</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+  
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+
     <%= javascript_importmap_tags %>
 
     <link rel="stylesheet" href="../../assets/stylesheets/application.css">
@@ -18,7 +20,9 @@
   <body>
 
 
+
 <nav class="navbar navbar-light bg-light">
+<div class="container">
   <ul class="p-0 d-flex" style="list-style-type: none;">
   <% if !user_signed_in? %>
     <li><a><%= link_to t('navbar.Sign Up'), new_user_registration_path, class: "btn btn-outline-success mr-2" %></a></li>
@@ -26,9 +30,23 @@
   <%else%>
     <li><a><%= button_to t('navbar.Sign Out'), destroy_user_session_path(@user), method: :delete , class:"btn btn-sm btn-outline-danger" %></a></li>
   <%end%>
+</ul>
 
-   
-  </ul>
+<ul class="float-right" style="list-style-type: none;">
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         <i class="fal fa-globe text-dark fa-lg"></i>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item"><%= link_to 'English', url_for(locale: :en) %></a>
+          <a class="dropdown-item"><%= link_to 'عربي', url_for(locale: :ar) %></a>
+        </div>
+      </li>
+</ul>
+ 
+
+</div>
+
 </nav>
 
 
@@ -108,11 +126,11 @@
 -->
 <!-- Here is the sidebar -->
 
-
+<div class="container">
    <p class="notice"><%= notice %></p>
    <p class="alert"><%= alert %></p>
     <%= yield %>
-
+</div>
 <!--
  </main>
       </div>
@@ -180,4 +198,9 @@
       });
     </script>
 -->
+
+
+
+
+
 </html>
