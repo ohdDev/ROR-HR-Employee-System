@@ -36,5 +36,13 @@ In this project I'm creating an HR emplyee system using ruby on rails.
 
 https://user-images.githubusercontent.com/71216797/156935641-9609746d-9f04-448e-86ba-feb98baeb00e.mp4
 
+- Action Views
+
+(Edit System views)
+![action views](https://i.ibb.co/9YM6RmK/imgonline-com-ua-twotoone-dk6-Jn-Q3c-Gj-Vz-U9p.jpg)
+
+(use accepts_nested_attributes_for with division and team models)
+
+
 
 
