@@ -1,6 +1,6 @@
 <div class="container">
-<h1 class="text-center mt-5">Targets</h1>
- <a href="/" class="mt-5">&#8592; Back to Home</a>
+<h1 class="text-center mt-5"><%= t 'models.Targets' %></h1>
+ <!-- <a href="/" class="mt-5">&#8592; <%= t 'global.buttons.back to home' %></a> -->
 
 
 
@@ -13,13 +13,14 @@
    <table class="table table-hover">
     <thead class="table-info">
       <tr>
-      <th>ID</th>
-       <th>Title</th>
-        <th>Description</th>
-        <th>Start Date</th>
-        <th>Finish Date</th>
-        <th>Status</th>
-        <th>Team</th>
+      <th><%= t 'pages.Targets.forms.id' %></th>
+       <th><%= t 'pages.Targets.forms.title' %></th>
+        <th><%= t 'pages.Targets.forms.description' %></th>
+        <th><%= t 'pages.Targets.forms.start date' %></th>
+        <th><%= t 'pages.Targets.forms.finish date' %></th>
+        <th><%= t 'pages.Targets.forms.status' %></th>
+        <th><%= t 'pages.Targets.forms.team' %></th>
+        <th></th>
         <th></th>
         <th></th>
       </tr>
@@ -30,14 +31,15 @@
         <td># <%=target.id%></td>
         <td><%=target.title%></td>
         <td><%=target.description%></td>
-        <td><%=target.start_date.strftime("%Y-%m-%d")%></td>
-        <td><%=target.finish_date.strftime("%Y-%m-%d")%></td>
+        <td><%= target.start_date %></td>
+        <td><%= target.finish_date %></td>
         <td><%=target.status%></td>
         <% if !(target.team_id).nil? %>
         <td> <%=Team.find(target.team_id).name %></td> 
         <%else%><td></td> <%end%>
-        <td> <a href="/targets/<%=target.id%>/edit" class="btn btn-primary">Edit</a></td>
-         <td><a href="/targets/<%=target.id%>" id="destroy" class="btn btn-danger">Delete</a></td>
+       <td class="px-0"><%= link_to t('global.buttons.show'), target_path(target), class: "btn btn-success"  %></td>
+        <td class="px-0"><%= link_to t('global.buttons.edit'), edit_target_path(target), class: "btn btn-primary"  %></td>
+        <td class="px-0"><%= button_to t('global.buttons.delete'), target_path(target), method: :delete, class: "btn btn-danger"  %></td>
       </tr>
     <% end %>
     </tbody>

@@ -1,6 +1,6 @@
 <div class="container">
-<h1 class="text-center mt-5">Divisions</h1>
- <a href="/" class="mt-5">&#8592; Back to Home</a>
+<h1 class="text-center mt-5"><%= t 'models.Divisions' %></h1>
+ <!-- <a href="/" class="mt-5">&#8592; <%= t 'global.buttons.back to home' %></a> -->
 
 
 
@@ -13,12 +13,13 @@
    <table class="table table-hover">
     <thead class="table-info">
       <tr>
-       <th>ID</th>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Teams</th>
-        <th>Manager</th>
+       <th><%= t 'pages.Divisions.forms.id' %></th>
+        <th><%= t 'pages.Divisions.forms.name' %></th>
+        <th><%= t 'pages.Divisions.forms.description' %></th>
+        <th><%= t 'pages.Divisions.forms.teams' %></th>
+        <th><%= t 'pages.Divisions.forms.manager' %></th>
         <th></th>
+         <th></th>
         <th></th>
       </tr>
     </thead>
@@ -28,14 +29,15 @@
         <td># <%=division.id%></td>
         <td><%=division.name%></td>
         <td><%=division.description%></td>
-        <td><%= division.teams.collect(&:name).join(',') %></td>
+        <td><p class="overme"><%= division.teams.collect(&:name).join(',') %></p></td>
 
         <% if !(division.employee).nil? %>
         <td> <%=Employee.find(division.employee_id).name %></td> 
         <%else%> <td></td> <%end%>
 
-        <td><%= link_to 'Edit', edit_division_path(division) , :class => "btn btn-primary"%></td>
-        <td><%= link_to 'Destroy', division, :class => "btn btn-danger", :confirm => 'Are you sure?', :method => :delete %></td>
+       <td class="px-0"><%= link_to t('global.buttons.show'), division_path(division), class: "btn btn-success"  %></td>
+       <td class="px-0"><%= link_to t('global.buttons.edit'), edit_division_path(division), class: "btn btn-primary"  %></td>
+       <td class="px-0"><%= button_to t('global.buttons.delete'), division_path(division), method: :delete, class: "btn btn-danger"  %></td>
 
 
       </tr>
