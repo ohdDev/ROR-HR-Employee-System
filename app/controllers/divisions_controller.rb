@@ -27,6 +27,8 @@ class DivisionsController < ApplicationController
   # GET /divisions/new
   def new
     @division = Division.new
+    # 2.times { @division.teams.build }
+    @division.teams.build
   end
 
   # GET /divisions/1/edit
@@ -35,16 +37,35 @@ class DivisionsController < ApplicationController
 
   # POST /divisions or /divisions.json
   def create
-
     
-    if !(division_params["teams"]).nil? 
-      division_teams = division_params["teams"].map{|team| Team.find(team.to_i)}
-      d_p = division_params
-      d_p["teams"] = division_teams
-      @division = Division.new(d_p)
-    else
-      @division = Division.new(division_params)
-    end
+    # d_p = division_params
+
+    # if !(d_p["teams_attributes"]["id"]).nil? 
+    #   team_employees = d_p["teams_attributes"]["employees"].map{|employee| Employee.find(employee.to_i)}
+    #   d_p["teams_attributes"]["employees"] = team_employees
+    # end
+
+    # if !(d_p["teams_attributes"]["leader_id"]).nil? 
+    #   team_leader = Employee.find(d_p["teams_attributes"]["leader_id"].to_i)
+    #   # d_p["teams_attributes"]["employees"].push(team_leader)
+    #   team_leader.team_id = d_p["teams_attributes"]["id"]
+      
+    # end
+    
+    # if !(d_p["teams"]).nil? 
+    #   division_teams = d_p["teams"].map{|team| Team.find(team.to_i)}
+    #   d_p["teams"] = division_teams     
+    # end
+
+    @division = Division.new(division_params)
+
+    # if !(division_params["teams_attributes"]["employees"]).nil? 
+      
+      
+    #   @division = Division.new(d_p)
+    # else
+    #   @division = Division.new(division_params)
+    # end
 
     respond_to do |format|
       if @division.save
@@ -72,16 +93,16 @@ class DivisionsController < ApplicationController
     # @division.update(teams: division_teams)
 
 
-    d_p = division_params
+    # d_p = division_params
 
-    if !(division_params["teams"]).nil? 
-      division_teams = division_params["teams"].map{|team| Team.find(team.to_i)}
-      d_p["teams"] = division_teams
-    end
+    # if !(division_params["teams"]).nil? 
+    #   division_teams = division_params["teams"].map{|team| Team.find(team.to_i)}
+    #   d_p["teams"] = division_teams
+    # end
 
 
     respond_to do |format|
-      if @division.update(d_p)
+      if @division.update(division_params)
 
         format.html { redirect_to division_url(@division), notice: "Division was successfully updated." }
         format.json { render :show, status: :ok, location: @division }
@@ -110,6 +131,6 @@ class DivisionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def division_params
-      params.require(:division).permit(:name, :description, :employee_id,:teams => [])
+      params.require(:division).permit(:name, :description, :employee_id, team_ids: [])
     end
 end

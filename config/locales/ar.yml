@@ -17,6 +17,7 @@ ar:
     Targets: 'الأهداف'
     Teams: 'الفرق'
     Divisions: 'الأقسام'
+    Dashboard: 'لوحة التحكم'
     details:
       description: 'الوصف'
       description content: 'هنا كل بيانات'

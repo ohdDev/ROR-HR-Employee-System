@@ -11,7 +11,7 @@
 
   <p>
     <strong><%= t('pages.Divisions.forms.manager') %>: </strong>
-    <%= division.employee_id %>
+    <%= Employee.find(division.employee_id).name %>
   </p>
 
     <p>

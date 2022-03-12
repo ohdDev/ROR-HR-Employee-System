@@ -29,11 +29,33 @@
 
 <div>
     <%= form.label t('pages.Teams.forms.members', default: 'Members'), style: "display: block" %>
-   <%= form.select :employees, Employee.all.where.not(id: @team.leader_id).collect{ |employee| [employee.name,employee.id] },{:include_hidden => false, selected: @team.employees.map(&:id)},{ :multiple => true, :class => 'p-1 pr-5'} %> 
+   <%# <%= form.select :employee_ids, Employee.all.where.not(id: @team.leader_id).collect{ |employee| [employee.name,employee.id] },{:include_hidden => false, selected: @team.employees.map(&:id)},{ :multiple => true, :class => 'p-1 pr-5'} %>  
+    <%= form.collection_select(:employee_ids, Employee.all, :id, :name, {include_hidden: false}, {:multiple => true}) %>
 
   </div>
 
+<!--
+ <div>
+ <%= form.label 'New Employees', style: "display: block" %>
+  <ul>
+  <%= form.fields_for :employees do |employees_form| %>
+  <li>
+  <%= employees_form.label :name %>
+  <%= employees_form.text_field :name %>
+  <%= employees_form.label :email %>
+  <%= employees_form.text_field :email %>
+    <%= employees_form.label :job %>
+  <%= employees_form.text_field :job %>
+    <%= employees_form.label :salary %>
+  <%= employees_form.text_field :salary %>
 
+  <%# <%= teams_form.label t('pages.Teams.forms.members', default: 'Members') %>
+  <%# <%= teams_form.select :employees, Employee.all.collect{ |employee| [employee.name,employee.id] },{:include_hidden => false},{ :multiple => true, :class => 'p-1 pr-5'} %>
+  </li>
+  <%end%>
+  </ul>
+ </div>
+-->
 
   <div>
     <%= form.submit %>

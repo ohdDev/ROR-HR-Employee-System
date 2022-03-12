@@ -26,10 +26,15 @@
     <%= form.select :employee_id, Employee.all.collect{ |employee| [employee.name,employee.id] }%>
   </div>
 
+
  <div>
-    <%= form.label t('pages.Divisions.forms.teams', default: 'Teams'), style: "display: block" %>
+   
    <%# <%= form.select :teams, Team.all.collect { |team| ["##{team.id}", team] },{:include_hidden => false},{ :multiple => true, class: 'selectpicker'} %> 
-   <%= form.select :teams, Team.all.collect{ |team| [team.name,team.id] },{:include_hidden => false, selected: @division.teams.map(&:id)},{ :multiple => true, :class => 'p-1 pr-5'} %> 
+   <%# <% form.fields_for :teams do |teams_form| %> 
+    <%= form.label t('pages.Divisions.forms.teams', default: 'Teams'), style: "display: block" %>
+   <%# <%= form.select :teams , Team.all.collect{ |team| [team.name,team.id] },{:include_hidden => false, selected: @division.teams.map(&:id)},{ :multiple => true, :class => 'p-1 pr-5'}  %> 
+    <%= form.collection_select(:team_ids, Team.all, :id, :name, {include_hidden: false}, {:multiple => true}) %>
+    <%# <% end %> 
 
   </div>
 
@@ -41,8 +46,28 @@
     { :multiple => true, :class => 'p-1 pr-5'} %>
 
   </div> -->
+<!--
+ <div>
+ <%= form.label 'New Teams', style: "display: block" %>
+  <ul>
+  <%= form.fields_for :teams do |teams_form| %>
+  <li>
+  <%= teams_form.label :name %>
+  <%= teams_form.text_field :name %>
+  <%= teams_form.label :description %>
+  <%= teams_form.text_field :description %>
+  <%= teams_form.label 'Leader' %>
+  <%= teams_form.select :leader_id,Employee.all.collect{ |employee| [employee.name,employee.id] } %>
+  <%# <%= teams_form.label t('pages.Teams.forms.members', default: 'Members') %>
+  <%# <%= teams_form.select :employees, Employee.all.collect{ |employee| [employee.name,employee.id] },{:include_hidden => false},{ :multiple => true, :class => 'p-1 pr-5'} %>
+  </li>
+  <%end%>
+  </ul>
+ </div>
 
-  
+
+-->
+
 
   <div>
     <%= form.submit %>

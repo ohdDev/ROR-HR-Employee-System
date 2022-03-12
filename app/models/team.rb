@@ -1,5 +1,6 @@
 class Team < ApplicationRecord
     has_many :employees, dependent: :nullify
+    accepts_nested_attributes_for :employees
     has_many :targets, dependent: :nullify
     belongs_to :division, optional: true
 
@@ -10,7 +11,7 @@ class Team < ApplicationRecord
 
     validates :leader_id, presence: true,uniqueness: true
 
-    validates :employees, presence: true
+    # validates :employees, presence: true
 
 
 
