@@ -39,9 +39,16 @@ https://user-images.githubusercontent.com/71216797/156935641-9609746d-9f04-448e-
 - Action Views
 
 (Edit System views)
+
 ![action views](https://i.ibb.co/9YM6RmK/imgonline-com-ua-twotoone-dk6-Jn-Q3c-Gj-Vz-U9p.jpg)
 
 (use accepts_nested_attributes_for with division and team models)
+
+- Assets pipeline
+  (add and apply bootstrp to the views)
+
+
+https://user-images.githubusercontent.com/71216797/158203765-50d63e8c-85c1-49dc-8443-265be0f346d5.mp4
 
 
 
