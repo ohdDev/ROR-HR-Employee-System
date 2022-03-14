@@ -10,6 +10,7 @@ ar:
   helpers:
       submit:
         create: "انشاء %{model}"
+        submit: "ارسال"
         update: "تحديث %{model}"
   models:
     Users: 'المستخدمين'

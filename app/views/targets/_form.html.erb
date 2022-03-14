@@ -11,38 +11,39 @@
     </div>
   <% end %>
 
-  <div>
+  <div class="form-group">
     <%= form.label t('pages.Targets.forms.title', default: 'Title'), style: "display: block" %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title , class: "form-control" %>
   </div>
 
-  <div>
+  <div class="form-group">
     <%= form.label t('pages.Targets.forms.description', default: 'Description'), style: "display: block" %>
-    <%= form.text_field :description %>
+    <%= form.text_field :description , class: "form-control"%>
   </div>
 
-  <div>
+  <div class="form-group">
     <%= form.label t('pages.Targets.forms.start date', default: 'Start Date'), style: "display: block" %>
-    <%= form.datetime_field :start_date %>
+    <%= form.datetime_field :start_date , class: "form-control"%>
   </div>
 
-  <div>
+  <div class="form-group">
     <%= form.label t('pages.Targets.forms.finish date', default: 'Finish Date'), style: "display: block" %>
-    <%= form.datetime_field :finish_date %>
+    <%= form.datetime_field :finish_date, class: "form-control" %>
   </div>
 
-  <div>
+  <div class="form-group">
     <%= form.label t('pages.Targets.forms.status', default: 'Status'), style: "display: block" %>
-    <%= form.text_field :status %>
+    <%= form.text_field :status, class: "form-control" %>
   </div>
 
-<div>
+<div class="form-group">
     <%= form.label t('pages.Targets.forms.team', default: 'Team'), style: "display: block" %>
-    <%= form.select :team_id, Team.all.collect{ |team| [team.name,team.id] }%>
+    <%= form.select :team_id, Team.all.collect{ |team| [team.name,team.id] },{},{class: "form-control"}%>
   </div>
 
 
-  <div>
-    <%= form.submit %>
+  <div class="form-group">
+        <%= form.submit t('helpers.submit.submit', model: ""), class: "btn btn-primary mt-2 px-4" %>
+
   </div>
 <% end %>
