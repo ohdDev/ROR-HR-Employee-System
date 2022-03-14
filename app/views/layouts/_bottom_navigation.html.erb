@@ -1,0 +1,15 @@
+<nav class="navbar border-bottom m-0">
+
+  <ul class="align-items-center ml-auto m-0" style="list-style-type: none;">
+  <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         <i class="fal fa-globe text-dark fa-lg"></i>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <%= link_to 'English', url_for(locale: :en), class: "dropdown-item" %>
+          <%= link_to 'عربي', url_for(locale: :ar), class: "dropdown-item" %>
+        </div>
+</li>
+</ul>
+
+</nav>

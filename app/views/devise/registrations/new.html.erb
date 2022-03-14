@@ -5,23 +5,23 @@
 
 
   <div>
-    <%= f.label :name, style: "display: block" %>
+    <%= f.label t('pages.Users.forms.name', default: 'Name') , style: "display: block" %>
     <%= f.text_field :name %>
   </div>
 
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label t('pages.Users.forms.email', default: 'Email')  %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
   <div>
-    <%= f.label :email_confirmation , style: "display: block" %>
+    <%= f.label t('pages.Users.forms.email confirm', default: 'Email Confirmation') , style: "display: block" %>
     <%= f.text_field :email_confirmation %>
   </div>
 
 
   <div class="field">
-    <%= f.label :password %>
+    <%= f.label t('pages.Users.forms.password', default: 'Password')  %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
@@ -29,7 +29,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label t('pages.Users.forms.password confirm', default: 'Password Confirmation')  %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 

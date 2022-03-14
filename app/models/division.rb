@@ -1,6 +1,7 @@
 class Division < ApplicationRecord
     belongs_to :employee, optional: true
     has_many :teams, dependent: :destroy
+    accepts_nested_attributes_for :teams
     # after_save :update_teams
     # serialize :teams
 
@@ -17,7 +18,8 @@ class Division < ApplicationRecord
 
     validates :employee_id, presence: true,uniqueness: true
 
-    validates :teams, presence: true
+    # validates :teams, presence: true
 
 
 end
+ 
