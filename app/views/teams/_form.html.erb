@@ -22,6 +22,11 @@
   </div>
 
   <div class="form-group">
+    <%= form.label t('activerecord.models.division', default: 'Division'), style: "display: block" %>
+    <%= form.select :division_id, Division.all.collect{ |division| [division.name,division.id] },{} , {class: "form-control"} %>
+  </div>
+
+  <div class="form-group">
     <%= form.label t('pages.Teams.forms.leader', default: 'Leader'), style: "display: block" %>
     <%= form.select :leader_id,Employee.all.collect{ |employee| [employee.name,employee.id] },{},{class: "form-control"} %>
   </div>

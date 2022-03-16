@@ -1,5 +1,5 @@
 class Employee < ApplicationRecord
-  
+    
     belongs_to :team, optional: true
     has_one :division, dependent: :nullify
 
@@ -15,8 +15,7 @@ class Employee < ApplicationRecord
     # validates :job,presence: true, format: { with: /\A[a-zA-Z ]+\z/,
     #     message: "only allows letters" }
 
-    validates :salary,presence: true, format: { with: /\A[0-9.]+\z/,
-        message: "only allows numbers" }
+    validates :salary, presence: true, numericality: true
 
     # validates :employment_status ,presence: true
 
