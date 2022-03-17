@@ -3,150 +3,71 @@ require "test_helper"
 class EmployeeTest < ActiveSupport::TestCase
 
   fixtures :employees
+
+  def setup 
+    @employee = employees(:one)
+  end
   
   test 'should save employee' do
-
-    new_employee = Employee.new
-    new_employee.name = employees(:one).name
-    new_employee.email = "test_unique@mail.com"
-    new_employee.job = employees(:one).job
-    new_employee.salary = employees(:one).salary
-    new_employee.employment_status = employees(:one).employment_status
-    new_employee.team_id = employees(:one).team
-  
-    assert new_employee.save
+   
+    assert @employee.save
     
   end
 
   test 'shouldn\'t save employee without email' do
 
-    new_employee = Employee.new
-    new_employee.name = employees(:one).name
-    # new_employee.email = "test_unique@mail.com"
-    new_employee.job = employees(:one).job
-    new_employee.salary = employees(:one).salary
-    new_employee.employment_status = employees(:one).employment_status
-    new_employee.team_id = employees(:one).team
-  
-    assert_not new_employee.save
+    @employee.email = nil
+    assert_not @employee.save
     
   end
 
-  test 'shouldn\'t save not unique email' do
-
-    new_employee = Employee.new
-    new_employee.name = employees(:one).name
-    new_employee.email = "test@mail.com"
-    new_employee.job = employees(:one).job
-    new_employee.salary = employees(:one).salary
-    new_employee.employment_status = employees(:one).employment_status
-    new_employee.team_id = employees(:one).team
+  test 'shouldn\'t be valid if email is not unique' do
   
-    new_employee.save
-
-    new_employee2 = Employee.new
-    new_employee2.name = employees(:two).name
-    new_employee2.email = "test@mail.com"
-    new_employee2.job = employees(:two).job
-    new_employee2.salary = employees(:two).salary
-    new_employee2.employment_status = employees(:two).employment_status
-    new_employee2.team_id = employees(:two).team
-  
-    assert_not new_employee2.save
-
-    # assert new_employee2.valid?
-    # assert new_employee2.errors.include?(:email)
-    # assert_equal(new_employee.email , new_employee2.email)
-    # assert_not new_employee2.duplicable?
+    emp2 = employees(:two)
+    @employee.email = emp2.email
+    assert_not @employee.valid?
     
   end
 
 
   test 'shouldn\'t save employee without name' do
 
-    new_employee = Employee.new
-    # new_employee.name = employees(:one).name
-    new_employee.email = "test_unique@mail.com"
-    new_employee.job = employees(:one).job
-    new_employee.salary = employees(:one).salary
-    new_employee.employment_status = employees(:one).employment_status
-    new_employee.team_id = employees(:one).team
-  
-    assert_not new_employee.save
+    @employee.name = nil
+    assert_not @employee.save
     
   end
 
 
-  test 'shouldn\'t save name if contains anything except letters' do
+  test 'shouldn\'t be valid if name contains anything except letters' do
 
-    new_employee = Employee.new
-    new_employee.name = employees(:three).name
-    new_employee.email = "test_unique@mail.com"
-    new_employee.job = employees(:three).job
-    new_employee.salary = employees(:three).salary
-    new_employee.employment_status = employees(:three).employment_status
-    new_employee.team_id = employees(:three).team
-  
-    assert_not new_employee.save
+    @employee.name = employees(:two).name
+    assert_not @employee.valid?
     
   end
 
   
   test 'shouldn\'t save employee without job' do
 
-    new_employee = Employee.new
-    new_employee.name = employees(:one).name
-    new_employee.email = "test_unique@mail.com"
-    # new_employee.job = employees(:one).job
-    new_employee.salary = employees(:one).salary
-    new_employee.employment_status = employees(:one).employment_status
-    new_employee.team_id = employees(:one).team
-  
-    assert_not new_employee.save
+    @employee.job = nil
+    assert_not @employee.save
     
   end
 
 
   test 'shouldn\'t save employee without salary' do
 
-    new_employee = Employee.new
-    new_employee.name = employees(:one).name
-    new_employee.email = "test_unique@mail.com"
-    new_employee.job = employees(:one).job
-    # new_employee.salary = employees(:one).salary
-    new_employee.employment_status = employees(:one).employment_status
-    new_employee.team_id = employees(:one).team
-  
-    assert_not new_employee.save
+    @employee.salary = nil
+    assert_not @employee.save
     
   end
 
 
-  test 'shouldn\'t save salary if not numbers' do
+  test 'shouldn\'t be valid if salary is not a number' do
 
-    new_employee = Employee.new
-    new_employee.name = employees(:four).name
-    new_employee.email = "test_unique@mail.com"
-    new_employee.job = employees(:four).job
-    new_employee.salary = "MyString"
-    new_employee.employment_status = employees(:four).employment_status
-    new_employee.team_id = employees(:four).team
-  
-    assert_not new_employee.save
+    @employee.salary = "MyString"
+    assert_not @employee.valid?
     
   end
 
-
-  # test 'should save employee' do
-  #   new_employee = Employee.new(
-  #     name: employees(:one).name, 
-  #     email: "test_unique@mail.com", 
-  #     job: employees(:one).job,
-  #     salary: employees(:one).salary,
-  #     employment_status: employees(:one).employment_status, 
-  #     team: employees(:one).team
-  #   )  
-  #   assert new_employee.save
-  # end
 
 end

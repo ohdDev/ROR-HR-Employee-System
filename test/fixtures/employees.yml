@@ -9,26 +9,10 @@ one:
   team: one
 
 two:
-  name: test
-  email: test@mail.com
+  name: test2
+  email: test2@mail.com
   job: sw
   salary: 500
-  employment_status: full time
-  team: two
-
-three:
-  name: test3
-  email: test@mail.com
-  job: sw
-  salary: 500
-  employment_status: full time
-  team: two
-
-four:
-  name: test
-  email: test@mail.com
-  job: sw
-  salary: sal
   employment_status: full time
   team: two
 
