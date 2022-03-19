@@ -44,5 +44,12 @@ https://user-images.githubusercontent.com/71216797/156935641-9609746d-9f04-448e-
 (use accepts_nested_attributes_for with division and team models)
 
 
+## Testing
+
+- add model test cases for employee model
+- test (create, update) forms
+
+<img width="939" alt="Screen Shot 2022-03-20 at 12 33 54 AM" src="https://user-images.githubusercontent.com/71216797/159139221-bd7e39f4-bccd-469e-ab94-caf12ccf168a.png">
+
 
 
