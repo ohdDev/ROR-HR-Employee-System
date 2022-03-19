@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  get 'home/index'
+  # get 'home/index'
   resources :targets
   resources :divisions
   resources :teams
@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   get 'home/index'
+  # get '/:locale' => 'home#index'
   root :to => "home#index"
-  
+
 end

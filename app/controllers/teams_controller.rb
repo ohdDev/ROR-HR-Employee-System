@@ -14,6 +14,7 @@ class TeamsController < ApplicationController
   # GET /teams/new
   def new
     @team = Team.new
+    2.times { @team.employees.build }
   end
 
   # GET /teams/1/edit
@@ -22,19 +23,19 @@ class TeamsController < ApplicationController
 
   # POST /teams or /teams.json
   def create
+    # t_p = team_params
 
-    if !(team_params["employees"]).nil? 
-      team_members = team_params["employees"].map{|member| Employee.find(member.to_i)}
-      t_p = team_params
-      t_p["employees"] = team_members
-      if !(team_params["leader_id"]).nil? 
-        team_leader = Employee.find(team_params["leader_id"].to_i)
-        t_p["employees"].push(team_leader)
-      end
-      @team = Team.new(t_p)
-    else
-      @team = Team.new(team_params)
-    end
+    # if !(t_p["employees"]).nil? 
+    #   team_members = t_p["employees"].map{|member| Employee.find(member.to_i)}
+    #   t_p["employees"] = team_members
+    # end
+
+    # if !(team_params["leader_id"]).nil? 
+    #   team_leader = Employee.find(team_params["leader_id"].to_i)
+    #   team_params["employee_ids"].push(team_leader)
+    # end
+
+    @team = Team.new(team_params)
 
     respond_to do |format|
       if @team.save
@@ -51,20 +52,30 @@ class TeamsController < ApplicationController
   # PATCH/PUT /teams/1 or /teams/1.json
   def update
 
-    t_p = team_params
+    # t_p = team_params
 
-    if !(team_params["employees"]).nil? 
-      team_members = team_params["employees"].map{|member| Employee.find(member.to_i)}
-      t_p["employees"] = team_members
-      if !(team_params["leader_id"]).nil? 
-        team_leader = Employee.find(team_params["leader_id"].to_i)
-        t_p["employees"].push(team_leader)
-      end
-      # @team = Team.update(t_p)
-    end
+    p "&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&"
+    p team_params
+    p "&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&"
+    # if !(team_params["employees"]).nil? 
+    #   team_members = team_params["employees"].map{|member| Employee.find(member.to_i)}
+    #   t_p["employees"] = team_members
+     
+    #   # @team = Team.update(t_p)
+    # end
+
+    # if !(team_params["leader_id"]).nil? 
+    #   team_leader = Employee.find(team_params["leader_id"].to_i)
+    #   t_p["employees"].push(team_leader)
+    # end
+
+    # if !(team_params["leader_id"]).nil? 
+    #   team_leader = Employee.find(team_params["leader_id"].to_i)
+    #   team_params["employee_ids"]["employees"].push(team_leader)
+    # end
 
     respond_to do |format|
-      if @team.update(t_p)
+      if @team.update(team_params)
         format.html { redirect_to team_url(@team), notice: "Team was successfully updated." }
         format.json { render :show, status: :ok, location: @team }
       else
@@ -92,6 +103,6 @@ class TeamsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def team_params
-      params.require(:team).permit(:name, :description,:leader_id, :division_id, :employees => [])
+      params.require(:team).permit(:name, :description,:leader_id, :division_id, employee_ids: [])
     end
 end

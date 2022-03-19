@@ -3,9 +3,9 @@
 one:
   name: MyString
   description: MyString
-  manager: MyString
+  employee_id: one
 
 two:
   name: MyString
   description: MyString
-  manager: MyString
+  employee_id: one

@@ -32,3 +32,24 @@ In this project I'm creating an HR emplyee system using ruby on rails.
 
 ![show teams](https://i.ibb.co/7gSmZvh/Screen-Shot-2022-02-28-at-5-34-35-AM.png)
 
+- use Rails Internationalization to add arabic translation
+
+https://user-images.githubusercontent.com/71216797/156935641-9609746d-9f04-448e-86ba-feb98baeb00e.mp4
+
+- Action Views
+
+(Edit System views)
+![action views](https://i.ibb.co/9YM6RmK/imgonline-com-ua-twotoone-dk6-Jn-Q3c-Gj-Vz-U9p.jpg)
+
+(use accepts_nested_attributes_for with division and team models)
+
+
+## Testing
+
+- add model test cases for employee model
+- test (create, update) forms
+
+<img width="939" alt="Screen Shot 2022-03-20 at 12 33 54 AM" src="https://user-images.githubusercontent.com/71216797/159139221-bd7e39f4-bccd-469e-ab94-caf12ccf168a.png">
+
+
+
