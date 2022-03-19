@@ -2,7 +2,6 @@ require "test_helper"
 
 class EmployeeTest < ActiveSupport::TestCase
 
-  fixtures :employees
 
   def setup 
     @employee = employees(:one)
