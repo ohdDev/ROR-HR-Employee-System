@@ -1,0 +1,41 @@
+<%= form_with(model: team) do |form| %>
+  <% if team.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(team.errors.count, "error") %> prohibited this team from being saved:</h2>
+
+      <ul>
+        <% team.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div>
+    <%= form.label :leader_id,'Team Leader', style: "display: block" %>
+    <%= form.select :leader_id,Employee.all.collect{ |employee| [employee.name,employee.id] } %>
+  </div>
+
+
+<div>
+    <%= form.label :employees, style: "display: block" %>
+   <%= form.select :employees, Employee.all.where.not(id: @team.leader_id).collect{ |employee| [employee.name,employee.id] },{:include_hidden => false, selected: @team.employees.map(&:id)},{ :multiple => true, :class => 'p-1 pr-5'} %> 
+
+  </div>
+
+
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
