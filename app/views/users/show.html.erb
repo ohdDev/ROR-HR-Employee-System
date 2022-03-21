@@ -1,10 +1,14 @@
 <p style="color: green"><%= notice %></p>
 
+<% if @user.picture.attached?%>
+<%= image_tag(@user.picture, size: "200x200")%>
+<%end%>
+
 <%= render @user %>
 
 <div>
-  <%= link_to "Edit this user", edit_user_path(@user) %> |
-  <%= link_to "Back to users", users_path %>
+  <%= link_to t('pages.Users.buttons.edit user'), edit_user_path(@user) %> |
+  <%= link_to t('pages.Users.buttons.back to users'), users_path %>
 
-  <%= button_to "Destroy this user", @user, method: :delete %>
+  <%= button_to t('pages.Users.buttons.destroy user'), @user, method: :delete %>
 </div>

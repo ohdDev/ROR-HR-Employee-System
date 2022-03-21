@@ -1,7 +1,7 @@
 <%= form_with(model: team) do |form| %>
   <% if team.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(team.errors.count, "error") %> prohibited this team from being saved:</h2>
+      <h2><%= t('global.messages.error message',count: team.errors.count) %></h2>
 
       <ul>
         <% team.errors.each do |error| %>
@@ -12,23 +12,23 @@
   <% end %>
 
   <div>
-    <%= form.label :name, style: "display: block" %>
+    <%= form.label t('pages.Teams.forms.name', default: 'Name'), style: "display: block" %>
     <%= form.text_field :name %>
   </div>
 
   <div>
-    <%= form.label :description, style: "display: block" %>
+    <%= form.label t('pages.Teams.forms.description', default: 'Description'), style: "display: block" %>
     <%= form.text_field :description %>
   </div>
 
   <div>
-    <%= form.label :leader_id,'Team Leader', style: "display: block" %>
+    <%= form.label t('pages.Teams.forms.leader', default: 'Leader'), style: "display: block" %>
     <%= form.select :leader_id,Employee.all.collect{ |employee| [employee.name,employee.id] } %>
   </div>
 
 
 <div>
-    <%= form.label :employees, style: "display: block" %>
+    <%= form.label t('pages.Teams.forms.members', default: 'Members'), style: "display: block" %>
    <%= form.select :employees, Employee.all.where.not(id: @team.leader_id).collect{ |employee| [employee.name,employee.id] },{:include_hidden => false, selected: @team.employees.map(&:id)},{ :multiple => true, :class => 'p-1 pr-5'} %> 
 
   </div>

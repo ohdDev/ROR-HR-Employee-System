@@ -1,7 +1,7 @@
 <%= form_with(model: target) do |form| %>
   <% if target.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(target.errors.count, "error") %> prohibited this target from being saved:</h2>
+      <h2><%= t('global.messages.error message',count: target.errors.count) %></h2>
 
       <ul>
         <% target.errors.each do |error| %>
@@ -12,32 +12,32 @@
   <% end %>
 
   <div>
-    <%= form.label :title, style: "display: block" %>
+    <%= form.label t('pages.Targets.forms.title', default: 'Title'), style: "display: block" %>
     <%= form.text_field :title %>
   </div>
 
   <div>
-    <%= form.label :description, style: "display: block" %>
+    <%= form.label t('pages.Targets.forms.description', default: 'Description'), style: "display: block" %>
     <%= form.text_field :description %>
   </div>
 
   <div>
-    <%= form.label :start_date, style: "display: block" %>
+    <%= form.label t('pages.Targets.forms.start date', default: 'Start Date'), style: "display: block" %>
     <%= form.datetime_field :start_date %>
   </div>
 
   <div>
-    <%= form.label :finish_date, style: "display: block" %>
+    <%= form.label t('pages.Targets.forms.finish date', default: 'Finish Date'), style: "display: block" %>
     <%= form.datetime_field :finish_date %>
   </div>
 
   <div>
-    <%= form.label :status, style: "display: block" %>
+    <%= form.label t('pages.Targets.forms.status', default: 'Status'), style: "display: block" %>
     <%= form.text_field :status %>
   </div>
 
 <div>
-    <%= form.label :team_id, style: "display: block" %>
+    <%= form.label t('pages.Targets.forms.team', default: 'Team'), style: "display: block" %>
     <%= form.select :team_id, Team.all.collect{ |team| [team.name,team.id] }%>
   </div>
 

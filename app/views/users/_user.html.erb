@@ -1,17 +1,22 @@
 <div id="<%= dom_id user %>">
   <p>
-    <strong>Email:</strong>
+    <strong><%= t 'pages.Users.forms.email' %>: </strong>
     <%= user.email %>
   </p>
 
   <p>
-    <strong>Name:</strong>
+    <strong><%= t 'pages.Users.forms.name' %>: </strong>
     <%= user.name %>
   </p>
 
   <p>
-    <strong>Password:</strong>
+    <strong><%= t 'pages.Users.forms.password' %>: </strong>
     <%= user.password %>
+  </p>
+
+  <p>
+    <strong><%= t 'pages.Users.forms.created at' %>: </strong>
+    <%= l user.created_at %>
   </p>
 
 </div>

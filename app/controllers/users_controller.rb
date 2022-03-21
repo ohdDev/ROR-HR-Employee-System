@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
 
   # GET /users or /users.json
   def index
@@ -15,6 +16,12 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def purge_picture
+    @user = User.find(params[:id])
+    @user.picture.purge
+    redirect_back fallback_location: user_path, notice: "image has successfully deleted"
+  end
+
   # GET /users/1/edit
   def edit
   end
@@ -25,6 +32,9 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+
+        WelcomeMailJob.perform_later(@user)
+
         format.html { redirect_to user_url(@user), notice: "User was successfully created." }
         format.json { render :show, status: :created, location: @user }
       else
@@ -65,6 +75,6 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:email, :name, :password,:email_confirmation,:password_confirmation)
+      params.require(:user).permit(:email, :name,:email_confirmation,:password, :password_confirmation, :picture)
     end
 end

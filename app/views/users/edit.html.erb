@@ -1,10 +1,15 @@
-<h1>Editing user</h1>
+<h1><%= t('pages.Users.forms.editing user') %></h1>
+
+<% if @user.picture.attached?%>
+<%= image_tag(@user.picture, size: "200x200")%>
+<%= button_to t('pages.Users.buttons.destroy picture'), purge_picture_user_path(@user), method: :delete %>
+<%end%>
 
 <%= render "form", user: @user %>
 
 <br>
 
 <div>
-  <%= link_to "Show this user", @user %> |
-  <%= link_to "Back to users", users_path %>
+  <%= link_to t('pages.Users.buttons.show user'), @user %> |
+  <%= link_to t('pages.Users.buttons.back to users'), users_path %>
 </div>

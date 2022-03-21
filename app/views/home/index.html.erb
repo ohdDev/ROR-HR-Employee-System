@@ -1,5 +1,7 @@
+
+
 <div class="container">
-<h1 class="text-center mt-5">HR employee administration system</h1>
+<h1 class="text-center "><%= t 'HR System' %></h1>
 
 <div class="row mt-5">
 
@@ -8,13 +10,13 @@
         <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
             <a class="card-block stretched-link text-decoration-none text-white" href="/users">
             <% link_to "Users", "/users" %>
-            <div class="card-header">Users</div>
+            <div class="card-header"><%= t 'models.Users'%></div>
             <div class="card-body">
-              <h5 class="card-title">Description</h5>
-              <p class="card-text">here is all the data of Users</p>
+              <h5 class="card-title"><%= t 'models.details.description'%></h5>
+              <p class="card-text"><%= t 'models.details.description content'%> <%= t 'models.Users'%></p>
             </div>
         </a>
-          </div>
+        </div>
           
 
     </div>
@@ -24,10 +26,10 @@
         <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
             <a class="card-block stretched-link text-decoration-none text-white" href="/employees">
             <% link_to "Employees", "/employees" %>
-            <div class="card-header">Emplyees</div>
+            <div class="card-header"><%= t 'models.Employees' %></div>
             <div class="card-body">
-              <h5 class="card-title">Description</h5>
-              <p class="card-text">here is all the data of Emplyees</p>
+              <h5 class="card-title"><%= t 'models.details.description'%></h5>
+              <p class="card-text"><%= t 'models.details.description content'%> <%= t 'models.Employees'%></p>
             </div>
         </a>
           </div>
@@ -39,10 +41,10 @@
         <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
             <a class="card-block stretched-link text-decoration-none text-white" href="/teams">
             <% link_to "Teams", "/teams" %>
-            <div class="card-header">Teams</div>
+            <div class="card-header"><%= t 'models.Teams' %></div>
             <div class="card-body">
-              <h5 class="card-title">Description</h5>
-              <p class="card-text">here is all the data of Teams</p>
+              <h5 class="card-title"><%= t 'models.details.description'%></h5>
+              <p class="card-text"><%= t 'models.details.description content'%> <%= t 'models.Teams'%></p>
             </div>
         </a>
           </div>
@@ -54,10 +56,10 @@
         <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
             <a class="card-block stretched-link text-decoration-none text-white" href="divisions">
             <% link_to "Divisions", "/divisions" %>
-            <div class="card-header">Divisions</div>
+            <div class="card-header"><%= t 'models.Divisions' %></div>
             <div class="card-body">
-              <h5 class="card-title">Description</h5>
-              <p class="card-text">here is all the data of Divisions</p>
+              <h5 class="card-title"><%= t 'models.details.description'%></h5>
+              <p class="card-text"><%= t 'models.details.description content'%> <%= t 'models.Divisions'%></p>
             </div>
         </a>
           </div>
@@ -69,10 +71,10 @@
         <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
             <a class="card-block stretched-link text-decoration-none text-white" href="/targets">
             <% link_to "Targets", "/targets" %>
-            <div class="card-header">Targets</div>
+            <div class="card-header"><%= t 'models.Targets' %></div>
             <div class="card-body">
-              <h5 class="card-title">Description</h5>
-              <p class="card-text">here is all the data of Targets</p>
+              <h5 class="card-title"><%= t 'models.details.description'%></h5>
+              <p class="card-text"><%= t 'models.details.description content'%> <%= t 'models.Targets'%></p>
             </div>
         </a>
           </div>
